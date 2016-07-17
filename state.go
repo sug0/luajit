@@ -181,7 +181,7 @@ func gowritechunk(writer, buf unsafe.Pointer, bufsz C.size_t) int {
 //
 // This function does not pop the Lua function from the stack.
 func (s *State) Dump(w io.Writer) error {
-	r := int(C.dump(s.l, unsafe.Pointer(&w)))
+	r := int(C.dump(s.l, w))
 	return numtoerror(r)
 }
 
