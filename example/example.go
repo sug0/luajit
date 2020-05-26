@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/glycerine/luajit"
+	"github.com/sug0/luajit"
 )
 
 func DumpLuaStack(L *luajit.State) {
