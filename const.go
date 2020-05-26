@@ -173,6 +173,24 @@ const (
 	Loadlibname = C.LUA_LOADLIBNAME // package
 )
 
+// Represents a Lua lib to be opened.
+type LuaLib int
+
+// All possible libraries to open.
+const (
+	LibBase LuaLib = iota
+	LibMath
+	LibString
+	LibTable
+	LibIo
+	LibOs
+	LibPackage
+	LibDebug
+	LibBit
+	LibJit
+	LibFfi
+)
+
 // VM modes
 const (
 	// Turn the whole JIT compiler on or off or flush the whole

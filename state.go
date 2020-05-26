@@ -426,6 +426,34 @@ func (s *State) Openlibs() {
 	C.luaL_openlibs(s.l)
 }
 
+// Opens the specified Lua library.
+func (s *State) Openlib(lib LuaLib) {
+	switch lib {
+	case LibBase:
+		C.luaopen_base(s.l)
+	case LibMath:
+		C.luaopen_math(s.l)
+	case LibString:
+		C.luaopen_string(s.l)
+	case LibTable:
+		C.luaopen_table(s.l)
+	case LibIo:
+		C.luaopen_io(s.l)
+	case LibOs:
+		C.luaopen_os(s.l)
+	case LibPackage:
+		C.luaopen_package(s.l)
+	case LibDebug:
+		C.luaopen_debug(s.l)
+	case LibBit:
+		C.luaopen_bit(s.l)
+	case LibJit:
+		C.luaopen_jit(s.l)
+	case LibFfi:
+		C.luaopen_ffi(s.l)
+	}
+}
+
 // Accepts any valid index, or 0, and sets the stack top to this
 // index. If the new top is larger than the old one, then the new elements
 // are filled with nil. If index is 0, then all stack elements are removed.
